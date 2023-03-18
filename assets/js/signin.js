@@ -1,6 +1,24 @@
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container");
+const signInWithGoogleButton = document.getElementById('signInWithGoogle');
+
+const auth = firebase.auth();
+
+const signInWithGoogle = () => {
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+  auth.signInWithPopup(googleProvider)
+  .then(() => {
+    console.log("already login");
+  })
+  .catch(error =>{
+    console.log(error);
+  })
+};
+
+
+signInWithGoogleButton.addEventListener('click', signInWithGoogle);
 
 sign_up_btn.addEventListener("click", () => {
   container.classList.add("sign-up-mode");

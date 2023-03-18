@@ -14,7 +14,7 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form target="_blank" action="#" class="sign-in-form" method="post">
+          <div class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -24,24 +24,25 @@
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
             </div>
-            <input type="submit" value="Login" class="btn solid" onclick="redirectToPage()" />
+            <input type="submit" value="Login" class="btn solid" />
             <p class="social-text">Or Sign in with Google</p>
-            <div class="social-media">
+            <!-- <div class="social-media"> -->
               <!-- <a href="#" class="social-icon">
                 <i class="fab fa-facebook-f"></i>
               </a>
               <a href="#" class="social-icon">
                 <i class="fab fa-twitter"></i>
               </a> -->
-              <a href="#" class="social-icon">
+              <button class="social-media" id="signInWithGoogle">
+                <!-- <img src="assets/img/google.svg" width="55px" height="55px" alt="Sign in with your Google account."> -->
                 <i class="fab fa-google"></i>
-              </a>
+            </button><br>
               <!-- <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
               </a> -->
-            </div>
-          </form>
-          <form target="_blank" action="#" class="sign-up-form" method="post">
+            <!-- </div> -->
+          </div>
+          <div class="sign-up-form">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -55,24 +56,17 @@
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
             </div>
-            <input type="submit" class="btn" value="Sign up" onclick="redirectToPage()" />
-            <!-- <button onclick="window.location.href=``">Continue</button> -->
+            <input type="submit" class="btn" value="Sign up"/>
+
             <p class="social-text">Or Sign up with Google</p>
             <div class="social-media">
-              <!-- <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a> -->
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <!-- <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a> -->
+                <!-- <i class="fab fa-google"></i> -->
+                <button id="signInWithGoogle">Login with your Google
+                    <!-- <img src="./img/google.svg" width="55px" height="55px" alt="Sign in with your Google account."> -->
+                    <i class="fab fa-google"></i>
+                </button><br>
             </div>
-          </form>
+          </div>
         </div>
       </div>
 
@@ -99,6 +93,13 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Firebase setup -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="assets/js/firebase.js"></script>
 
     <script src="assets/js/signin.js"></script>
   </body>
