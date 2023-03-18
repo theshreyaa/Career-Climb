@@ -40,7 +40,7 @@ input {
   z-index: 5;
 }
 
-form {
+.sign-in-form, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,12 +52,12 @@ form {
   grid-row: 1 / 2;
 }
 
-form.sign-up-form {
+div.sign-up-form {
   opacity: 0;
   z-index: 1;
 }
 
-form.sign-in-form {
+div.sign-in-form {
   z-index: 2;
 }
 
@@ -375,7 +375,7 @@ form.sign-in-form {
 }
 
 @media (max-width: 570px) {
-  form {
+  .sign-in-form, .sign-up-form {
     padding: 0 1.5rem;
   }
 
