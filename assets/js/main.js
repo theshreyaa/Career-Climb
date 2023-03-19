@@ -9,24 +9,6 @@
       });
     });
 
-    // Authentication
-    const signInWithGoogleButton = document.getElementById('signInWithGoogle');
-    const auth = firebase.auth();
-    console.log(auth);
-
-    const signInWithGoogle = () => {
-      const googleProvider = new firebase.auth.GoogleAuthProvider();
-
-      auth.signInWithPopup(googleProvider)
-      .then(() => {
-        console.log("already login");
-      })
-      .catch(error =>{
-        console.log(error);
-      })
-    };
-    signInWithGoogleButton.addEventListener('click', signInWithGoogle);
-
 /* 2. slick Nav */
 // mobile_menu
     var menu = $('ul#navigation');
@@ -249,6 +231,7 @@
           }
         });
       }
+  
 
 
 

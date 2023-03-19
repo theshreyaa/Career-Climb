@@ -5,16 +5,27 @@ const signInWithGoogleButton = document.getElementById('signInWithGoogle');
 
 const auth = firebase.auth();
 
-const signInWithGoogle = () => {
+async function signInWithGoogle(){
   const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-  auth.signInWithPopup(googleProvider)
-  .then(() => {
-    console.log("already login");
-  })
-  .catch(error =>{
-    console.log(error);
-  })
+  // const user = auth.signInWithPopup(googleProvider)
+  // .then(() => {
+  //   console.log("already login");
+  //   console.log(user);
+  //   // createUser();
+  // })
+  // .catch(error =>{
+  //   console.log(error);
+  // })
+  const user = await firebase.auth().signInWithPopup(googleProvider);
+  console.log(user);
+
+  firebase.firestore().collection("Users").add({
+     email: user.user.email,
+     name: user.user.displayName,
+  });
+
+  location.replace('/index.html');
 };
 
 
@@ -31,3 +42,14 @@ sign_in_btn.addEventListener("click", () => {
 function redirectToPage() {
   window.location.href = "\\My Dashboard _ Courses\\home.html"; // replace with the URL of the page you want to redirect to
 }
+
+
+//Signin-signout
+// const signin_signout = document.querySelector("#singin_signout");
+// if(user){
+//   signin_signout.innerHTML=`<a href="/signin.html" class="btn head-btn1">Log Out</a>`
+// }
+
+// else{
+//   signin_signout.innerHTML = `<a href="/signin.html" class="btn head-btn1">Sign In</a>`;
+// }
